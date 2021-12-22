@@ -9,7 +9,7 @@ import com.plcoding.multipleroomtables.entities.Subject
 data class StudentWithSubjects(
     @Embedded val student: Student,
     @Relation(
-        parentColumn = "studentName",
+        parentColumn = "studentIndex",
         entityColumn = "subjectName",
         associateBy = Junction(StudentSubjectCrossRef::class)
     )

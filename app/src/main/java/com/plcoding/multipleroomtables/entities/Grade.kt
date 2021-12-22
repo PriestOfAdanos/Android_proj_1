@@ -4,9 +4,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Subject(
-    @PrimaryKey(autoGenerate = false)
+data class Grade(
+    @PrimaryKey(autoGenerate = true)
+    val gradeID: Int,
+    val grade: Int,
     val subjectName: String,
-    val start:String,
-    val duration: String
+    val studentID: Int
 )

@@ -4,19 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.plcoding.multipleroomtables.entities.Director
-import com.plcoding.multipleroomtables.entities.School
 import com.plcoding.multipleroomtables.entities.Student
+import com.plcoding.multipleroomtables.entities.Grade
 import com.plcoding.multipleroomtables.entities.Subject
 import com.plcoding.multipleroomtables.entities.relations.StudentSubjectCrossRef
 
 @Database(
     entities = [
-        School::class,
         Student::class,
-        Director::class,
         Subject::class,
-        StudentSubjectCrossRef::class
+        StudentSubjectCrossRef::class,
+        Grade::class
     ],
     version = 1
 )

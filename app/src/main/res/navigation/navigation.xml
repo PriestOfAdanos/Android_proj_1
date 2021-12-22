@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/subjectListFragment">
+    <fragment
+        android:id="@+id/subjectFragment"
+        android:name="com.plcoding.multipleroomtables.Subject.SubjectFragment"
+        android:label="SubjectFragment" >
+        <action
+            android:id="@+id/action_subjectFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectListFragment"
+        android:name="com.plcoding.multipleroomtables.Subject.SubjectListFragment"
+        android:label="SubjectListFragment" >
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectFragment"
+            app:destination="@id/subjectFragment" />
+    </fragment>
+</navigation>

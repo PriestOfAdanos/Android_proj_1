@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class Student(
     @PrimaryKey(autoGenerate = false)
-    val studentName: String,
-    val semester: Int,
-    val schoolName: String
+    val studentIndex: Int,
+    val studentName: String
 )

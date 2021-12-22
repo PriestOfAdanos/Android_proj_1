@@ -1,17 +1,15 @@
 package com.plcoding.multipleroomtables.entities.relations
 
 import androidx.room.Embedded
-import androidx.room.Junction
 import androidx.room.Relation
-import com.plcoding.multipleroomtables.entities.Student
+import com.plcoding.multipleroomtables.entities.Grade
 import com.plcoding.multipleroomtables.entities.Subject
 
-data class SubjectWithStudents(
+data class SubjectWithGrades(
     @Embedded val subject: Subject,
     @Relation(
         parentColumn = "subjectName",
-        entityColumn = "studentIndex",
-        associateBy = Junction(StudentSubjectCrossRef::class)
+        entityColumn = "subjectName"
     )
-    val students: List<Student>
+    val grades: List<Grade>
 )
