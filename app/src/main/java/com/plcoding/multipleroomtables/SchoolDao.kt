@@ -26,6 +26,9 @@ interface SchoolDao {
     @Delete
     fun deleteSubject(subject: Subject)
 
+    @Delete
+    fun deleteStudent(student: Student)
+
 //    @Transaction
 //    @Query("SELECT * FROM school WHERE schoolName = :schoolName")
 //    suspend fun getSchoolAndDirectorWithSchoolName(schoolName: String): List<SchoolAndDirector>
@@ -35,10 +38,10 @@ interface SchoolDao {
 //    suspend fun getSchoolWithStudents(schoolName: String): List<SchoolWithStudents>
 
     @Transaction
-    @Query("SELECT * FROM subject WHERE subjectName = :subjectName")
-    suspend fun getStudentsOfSubject(subjectName: String): List<SubjectWithStudents>
+    @Query("SELECT * FROM subject WHERE subjectName=:subjectName")
+    fun getStudentsOfSubject(subjectName: String): LiveData<List<SubjectWithStudents>>
 
     @Transaction
-    @Query("SELECT * FROM student WHERE studentName = :studentName")
+    @Query("SELECT * FROM student WHERE studentName=:studentName")
     suspend fun getSubjectsOfStudent(studentName: String): List<StudentWithSubjects>
 }
