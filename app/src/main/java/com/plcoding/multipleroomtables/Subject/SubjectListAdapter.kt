@@ -1,11 +1,15 @@
 package com.plcoding.multipleroomtables.Subject
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.LiveData
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.plcoding.multipleroomtables.R
 import com.plcoding.multipleroomtables.entities.Subject
@@ -36,6 +40,12 @@ class SubjectListAdapter(private val subjects: LiveData<List<Subject>>, private 
         holder.buttonDelete.setOnClickListener {
             subjects.value?.let{ existingSubject->
                 viewModel.deleteSubject(existingSubject.get(position))
+            }
+        }
+        holder.buttonDetails.setOnClickListener {
+            subjects.value?.let{ existingSubject->
+                val bundle = bundleOf("amount" to existingSubject)
+                it.findNavController().navigate(R.id.action_subjectListFragment_to_studentListFragment,bundle)
             }
         }
 

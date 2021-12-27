@@ -57,15 +57,6 @@ class SubjectListFragment: Fragment() {
             }
         }
 
-        view.findViewById<Button>(R.id.button_subject_to_student_list).apply {
-            setOnClickListener {
-                val result = "result"
-                // Use the Kotlin extension in the fragment-ktx artifact
-                setFragmentResult("requestKey", bundleOf("bundleKey" to result))
-                it.findNavController().navigate(R.id.action_subjectListFragment_to_studentListFragment)
-            }
-        }
-
 
     }
 

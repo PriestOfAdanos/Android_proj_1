@@ -23,21 +23,13 @@ class StudentListFragment: Fragment() {
 
     lateinit var viewModel: StudentListViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // Use the Kotlin extension in the fragment-ktx artifact
-        setFragmentResultListener("requestKey") { requestKey, bundle ->
-            // We use a String here, but any type that can be put in a Bundle is supported
-            val result = bundle.getString("bundleKey")
-            // Do something with the result
-            Log.d("res",result.toString())
-        }
-    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var amt = arguments?.getString("amount")
+        Log.d("amt",amt.toString())
         return inflater.inflate(R.layout.fragment_student_list,container,false)
     }
     override  fun onViewCreated(view: View, savedInstanceState: Bundle?) {
