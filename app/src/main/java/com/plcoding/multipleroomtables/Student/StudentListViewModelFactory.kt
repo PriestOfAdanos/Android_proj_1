@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
 class StudentListViewModelFactory(
-     private val application: Application
+    private val application: Application, var subjectName: String?
 ) :ViewModelProvider.Factory {
 
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(StudentListViewModel::class.java)) {
-            return StudentListViewModel(application) as T
+            return StudentListViewModel(application, subjectName) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

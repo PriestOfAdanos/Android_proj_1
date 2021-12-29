@@ -1,6 +1,7 @@
 package com.plcoding.multipleroomtables.Subject
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +51,11 @@ class SubjectListFragment: Fragment() {
 
             it.adapter=subjectListAdapter
             it.layoutManager=layoutManager
+        }
+        view.findViewById<Button>(R.id.button_subject_to_student).apply {
+            setOnClickListener {
+                it.findNavController().navigate(R.id.action_subjectListFragment_to_studentFragment)
+            }
         }
         view.findViewById<Button>(R.id.button_back_to_form).apply {
             setOnClickListener {

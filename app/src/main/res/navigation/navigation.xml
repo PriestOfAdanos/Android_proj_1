@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_subjectListFragment_to_studentListFragment"
             app:destination="@id/studentListFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
     </fragment>
     <fragment
         android:id="@+id/studentFragment"
@@ -29,6 +32,9 @@
         <action
             android:id="@+id/action_studentFragment_to_studentListFragment"
             app:destination="@id/studentListFragment" />
+        <action
+            android:id="@+id/action_studentFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
     </fragment>
     <fragment
         android:id="@+id/studentListFragment"

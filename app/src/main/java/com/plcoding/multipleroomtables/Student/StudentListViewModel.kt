@@ -13,11 +13,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class StudentListViewModel(
-    application: Application):
+    application: Application, subjectName: String?):
           AndroidViewModel(application) {
     private val schoolDAO: SchoolDao = SchoolDatabase.getInstance(application).schoolDao
-    private val subjectsWithStudents: LiveData<List<SubjectWithStudents>> = schoolDAO.getStudentsOfSubject("abc")
-    val students = subjectsWithStudents.value?.get(0)?.students ?: listOf<Student>()
+
+
+    //val students:LiveData<List<Student>> = schoolDAO.getAllStudents()
+
+    //val students:LiveData<List<Student>> = schoolDAO.getAllStudents()
+
+    var students: LiveData<List<Student>> = if(subjectName!= null) schoolDAO.getStudentNamesBySubjectName(subjectName) else schoolDAO.getAllStudents()
+
+
+    //val students = subjectsWithStudents?.value?.get(0)?.students ?: listOf()
 
 
     fun deleteStudent(student: Student)

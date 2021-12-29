@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/subject_name"
-        android:text="first name"
+        android:text="subject name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,7 +15,7 @@
         />
     <EditText
         android:id="@+id/subject_start"
-        android:text="Last name"
+        android:text="subject start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         />
     <EditText
         android:id="@+id/subject_duration"
-        android:text="Age"
+        android:text="subject duration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

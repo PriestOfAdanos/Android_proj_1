@@ -5,36 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/subject_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_back_to_form"
+        app:layout_constraintBottom_toTopOf="@+id/button_subject_to_student"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.443" />
 
 
     <Button
         android:id="@+id/button_back_to_form"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="back_to_form"
+        android:text="add subject"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_subject_to_student_list"
+        app:layout_constraintTop_toBottomOf="@+id/button_subject_to_student"
         app:layout_constraintVertical_bias="0.777" />
 
     <Button
-        android:id="@+id/button_subject_to_student_list"
+        android:id="@+id/button_subject_to_student"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:text="back_to_form"
+        android:text="add student"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

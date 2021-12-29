@@ -32,9 +32,10 @@
         app:layout_constraintBottom_toTopOf="@+id/button_student_go_to_student_list"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
     <Button
-        android:id="@+id/button_student_go_to_student_list"
-        android:text="List"
+        android:id="@+id/button_student_go_to_subject_list"
+        android:text="Subject list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
+    <Button
+        android:id="@+id/button_student_go_to_student_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student list"
+        app:layout_constraintBottom_toTopOf="@+id/button_student_go_to_subject_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
