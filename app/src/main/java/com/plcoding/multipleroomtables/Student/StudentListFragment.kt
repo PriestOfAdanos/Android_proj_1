@@ -46,6 +46,10 @@ class StudentListFragment: Fragment() {
         viewModel.students.observe(viewLifecycleOwner,
             Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
         )
+        Log.d("students", viewModel.students.value?.size.toString())
+        Log.d("allStudents", viewModel.allStudents.value?.size.toString())
+
+
 
 
 
