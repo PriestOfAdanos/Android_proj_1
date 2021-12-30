@@ -17,12 +17,11 @@ class StudentListViewModel(
     application: Application,subjectName: String):
           AndroidViewModel(application) {
     private val schoolDAO: SchoolDao = SchoolDatabase.getInstance(application).schoolDao
-    var students: LiveData<List<Student>> = schoolDAO.getAllStudents()
-    var allStudents: LiveData<List<Student>> = schoolDAO.getAllStudents()
-    init{
-        students = schoolDAO.getStudentNamesBySubjectName(subjectName)
-    }
+    var students = schoolDAO.getStudentNamesBySubjectName(subjectName)
 
+//    fun updateStudents(subjectName: String){
+//        students = schoolDAO.getStudentNamesBySubjectName(subjectName)
+//    }
     fun deleteStudent(student: Student)
     {
         viewModelScope.launch(Dispatchers.IO) {

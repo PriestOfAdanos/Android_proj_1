@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.plcoding.multipleroomtables.R
 import com.plcoding.multipleroomtables.entities.Student
 
-class StudentListAdapter(private val students: LiveData<List<Student>>,private val allStudents: LiveData<List<Student>>, private val viewModel: StudentListViewModel, private val subjectName:String)
+class StudentListAdapter(private val students: LiveData<List<Student>>, private val viewModel: StudentListViewModel, private val subjectName:String)
     :RecyclerView.Adapter<StudentListAdapter.StudentListHolder>()
 {
     inner class StudentListHolder(private val view: View): RecyclerView.ViewHolder(view)

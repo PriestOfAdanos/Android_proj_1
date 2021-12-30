@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.plcoding.multipleroomtables.R
 import com.plcoding.multipleroomtables.entities.Subject
 
+
+
+
 class SubjectListFragment: Fragment() {
 
     lateinit var viewModel: SubjectListViewModel
@@ -59,6 +62,7 @@ class SubjectListFragment: Fragment() {
         }
         view.findViewById<Button>(R.id.button_back_to_form).apply {
             setOnClickListener {
+
                 it.findNavController().navigate(R.id.action_subjectListFragment_to_subjectFragment)
             }
         }

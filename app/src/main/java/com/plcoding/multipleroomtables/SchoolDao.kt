@@ -48,11 +48,9 @@ interface SchoolDao {
     @Query("SELECT * FROM student WHERE studentIndex=:studentIndex")
     fun getSubjectsOfStudent(studentIndex: Int): LiveData<List<StudentWithSubjects>>
 
-    @Transaction
     @Query("SELECT su.subjectName,su.start,su.duration FROM Subject su INNER JOIN StudentSubjectCrossRef ss ON ss.subjectName = su.subjectName INNER JOIN Student st ON ss.studentIndex = st.studentIndex WHERE st.studentIndex= :studentIndex")
     fun getSubjectNamesByStudentName(studentIndex: Int): List<Subject>
 
-    @Transaction
     @Query("SELECT st.studentIndex,st.studentName FROM Student st INNER JOIN StudentSubjectCrossRef ss ON ss.studentIndex = st.studentIndex INNER JOIN Subject su ON ss.subjectName = su.subjectName WHERE su.subjectName=:subjectName")
     fun getStudentNamesBySubjectName(subjectName: String): LiveData<List<Student>>
 
