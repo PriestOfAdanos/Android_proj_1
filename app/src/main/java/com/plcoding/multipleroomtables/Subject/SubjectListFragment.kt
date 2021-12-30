@@ -64,9 +64,12 @@ class SubjectListFragment: Fragment() {
             setOnClickListener {
 
                 it.findNavController().navigate(R.id.action_subjectListFragment_to_subjectFragment)
+                selfDestruct()
             }
         }
-
+    }
+    fun selfDestruct(){
+        getActivity()?.getSupportFragmentManager()?.beginTransaction()?.remove(this)?.commit()
 
     }
 
