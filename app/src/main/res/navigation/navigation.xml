@@ -30,9 +30,6 @@
         android:name="com.plcoding.multipleroomtables.Student.StudentFragment"
         android:label="StudentFragment" >
         <action
-            android:id="@+id/action_studentFragment_to_studentListFragment"
-            app:destination="@id/studentListFragment" />
-        <action
             android:id="@+id/action_studentFragment_to_subjectListFragment"
             app:destination="@id/subjectListFragment" />
     </fragment>
@@ -40,9 +37,6 @@
         android:id="@+id/studentListFragment"
         android:name="com.plcoding.multipleroomtables.Student.StudentListFragment"
         android:label="StudentListFragment" >
-        <action
-            android:id="@+id/action_studentListFragment_to_studentFragment"
-            app:destination="@id/studentFragment" />
         <action
             android:id="@+id/action_studentListFragment_to_subjectListFragment"
             app:destination="@id/subjectListFragment" />

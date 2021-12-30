@@ -44,7 +44,7 @@ class SubjectListAdapter(private val subjects: LiveData<List<Subject>>, private 
         }
         holder.buttonDetails.setOnClickListener {
             subjects.value?.let{ existingSubject->
-                val bundle = bundleOf("subjectName" to existingSubject[0]?.subjectName)
+                val bundle = bundleOf("subjectName" to existingSubject.get(position).subjectName)
                 it.findNavController().navigate(R.id.action_subjectListFragment_to_studentListFragment,bundle)
             }
         }

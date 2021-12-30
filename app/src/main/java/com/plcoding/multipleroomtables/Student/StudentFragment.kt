@@ -53,12 +53,6 @@ class StudentFragment: Fragment() {
                 view.findNavController().navigate(R.id.action_studentFragment_to_subjectListFragment)
             }
         }
-
-        view.findViewById<Button>(R.id.button_student_go_to_student_list).apply {
-            setOnClickListener {
-                view.findNavController().navigate(R.id.action_studentFragment_to_studentListFragment)
-            }
         }
-}
 }
 

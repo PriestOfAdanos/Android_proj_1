@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/subject_name"
-        android:text="subject name"
+        android:hint="Nazwa przedmiotu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,7 +15,8 @@
         />
     <EditText
         android:id="@+id/subject_start"
-        android:text="subject start"
+        android:hint="Początek"
+        android:inputType="datetime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +25,8 @@
         />
     <EditText
         android:id="@+id/subject_duration"
-        android:text="subject duration"
+        android:hint="Czas trwania"
+        android:inputType="time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

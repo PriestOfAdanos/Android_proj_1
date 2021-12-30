@@ -3,9 +3,10 @@ package com.plcoding.multipleroomtables.Student
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.plcoding.multipleroomtables.entities.Subject
 
 class StudentListViewModelFactory(
-    private val application: Application, var subjectName: String?
+    private val application: Application, private val subjectName: String
 ) :ViewModelProvider.Factory {
 
 

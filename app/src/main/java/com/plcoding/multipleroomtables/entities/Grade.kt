@@ -8,6 +8,8 @@ data class Grade(
     @PrimaryKey(autoGenerate = true)
     val gradeID: Int,
     val grade: Int,
+    val scaleEquation: Int,
+    val weight: Int,
     val subjectName: String,
-    val studentID: Int
+    val studentIndex: Int
 )

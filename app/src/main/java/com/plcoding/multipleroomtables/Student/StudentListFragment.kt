@@ -18,7 +18,8 @@ import androidx.lifecycle.Observer
 class StudentListFragment: Fragment() {
 
     lateinit var viewModel: StudentListViewModel
-
+    companion object {
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,22 +27,24 @@ class StudentListFragment: Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_student_list,container,false)
     }
+
     override  fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var subjectName = arguments?.getString("subjectName")
+        var subjectName = arguments?.getString("subjectName") ?: "HWDP"
 
         val factory= StudentListViewModelFactory((requireNotNull(this.activity).application),subjectName)
         viewModel=ViewModelProvider(requireActivity(),factory).
         get(StudentListViewModel::class.java)
+        Log.d("sName", subjectName)
+        //viewModel.studentsOfSubject(subjectName)
 
-        val studentListAdapter= StudentListAdapter(viewModel.students,viewModel)
-
+        val studentListAdapter= StudentListAdapter(viewModel.students,viewModel.allStudents,viewModel,subjectName)
+        viewModel.allStudents.observe(viewLifecycleOwner,
+            Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
+        )
         viewModel.students.observe(viewLifecycleOwner,
             Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
         )
-
-
-
 
         val layoutManager=LinearLayoutManager(view.context)
         view.findViewById<RecyclerView>(R.id.student_recyclerView).let {

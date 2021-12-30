@@ -1,6 +1,7 @@
 package com.plcoding.multipleroomtables.Student
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -13,19 +14,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class StudentListViewModel(
-    application: Application, subjectName: String?):
+    application: Application,subjectName: String):
           AndroidViewModel(application) {
     private val schoolDAO: SchoolDao = SchoolDatabase.getInstance(application).schoolDao
-
-
-    //val students:LiveData<List<Student>> = schoolDAO.getAllStudents()
-
-    //val students:LiveData<List<Student>> = schoolDAO.getAllStudents()
-
-    var students: LiveData<List<Student>> = if(subjectName!= null) schoolDAO.getStudentNamesBySubjectName(subjectName) else schoolDAO.getAllStudents()
-
-
-    //val students = subjectsWithStudents?.value?.get(0)?.students ?: listOf()
+    var students: LiveData<List<Student>> = schoolDAO.getStudentNamesBySubjectName(subjectName)
+    var allStudents:LiveData<List<Student>> = schoolDAO.getAllStudents()
 
 
     fun deleteStudent(student: Student)
@@ -34,4 +27,18 @@ class StudentListViewModel(
             schoolDAO.deleteStudent(student)
         }
     }
+
+    fun addStudentToSubject(student: Student, subjectName: String)
+    {
+        viewModelScope.launch(Dispatchers.IO) {
+            schoolDAO.deleteStudent(student)
+        }
+    }
+    fun removeStudentFromSubject(student: Student, subjectName: String)
+    {
+        viewModelScope.launch(Dispatchers.IO) {
+            schoolDAO.deleteStudent(student)
+        }
+    }
+
 }
