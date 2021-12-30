@@ -30,21 +30,24 @@ class StudentListFragment: Fragment() {
 
     override  fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var subjectName = arguments?.getString("subjectName") ?: "HWDP"
+        var subjectName = arguments?.getString("subjectName") ?: "abc"
 
         val factory= StudentListViewModelFactory((requireNotNull(this.activity).application),subjectName)
         viewModel=ViewModelProvider(requireActivity(),factory).
         get(StudentListViewModel::class.java)
-        Log.d("sName", subjectName)
+        Log.d("sName", subjectName ?: "none")
         //viewModel.studentsOfSubject(subjectName)
 
         val studentListAdapter= StudentListAdapter(viewModel.students,viewModel.allStudents,viewModel,subjectName)
+
         viewModel.allStudents.observe(viewLifecycleOwner,
             Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
         )
         viewModel.students.observe(viewLifecycleOwner,
             Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
         )
+
+
 
         val layoutManager=LinearLayoutManager(view.context)
         view.findViewById<RecyclerView>(R.id.student_recyclerView).let {
