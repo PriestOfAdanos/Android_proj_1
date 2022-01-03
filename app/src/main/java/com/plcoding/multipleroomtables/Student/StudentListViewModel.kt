@@ -9,6 +9,7 @@ import com.plcoding.multipleroomtables.SchoolDao
 import com.plcoding.multipleroomtables.SchoolDatabase
 import com.plcoding.multipleroomtables.entities.Student
 import com.plcoding.multipleroomtables.entities.Subject
+import com.plcoding.multipleroomtables.entities.relations.StudentSubjectCrossRef
 import com.plcoding.multipleroomtables.entities.relations.SubjectWithStudents
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,6 +19,7 @@ class StudentListViewModel(
           AndroidViewModel(application) {
     private val schoolDAO: SchoolDao = SchoolDatabase.getInstance(application).schoolDao
     var students = schoolDAO.getAllStudents()
+    var allStudents = schoolDAO.getAllStudents()
 
     fun getStundents(subjectName: String){
         students = schoolDAO.getStudentNamesBySubjectName(subjectName)
@@ -35,13 +37,13 @@ class StudentListViewModel(
     fun addStudentToSubject(student: Student, subjectName: String)
     {
         viewModelScope.launch(Dispatchers.IO) {
-            schoolDAO.deleteStudent(student)
+            schoolDAO.insertStudentSubjectCrossRef(StudentSubjectCrossRef(student.studentIndex, subjectName))
         }
     }
     fun removeStudentFromSubject(student: Student, subjectName: String)
     {
         viewModelScope.launch(Dispatchers.IO) {
-            schoolDAO.deleteStudent(student)
+            schoolDAO.deleteStudentSubjectCrossRef(StudentSubjectCrossRef(student.studentIndex, subjectName))
         }
     }
 

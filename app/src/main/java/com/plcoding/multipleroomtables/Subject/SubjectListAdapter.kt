@@ -48,7 +48,6 @@ class SubjectListAdapter(private val subjects: LiveData<List<Subject>>, private 
             subjects.value?.let{ existingSubject->
                 val subjectName = existingSubject.get(position).subjectName
                 val action = SubjectListFragmentDirections.actionSubjectListFragmentToStudentListFragment(subjectName)
-
                 it.findNavController().navigate(action)
             }
         }

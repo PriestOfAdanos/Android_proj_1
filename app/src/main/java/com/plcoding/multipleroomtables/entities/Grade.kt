@@ -5,11 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Grade(
-    @PrimaryKey(autoGenerate = true)
-    val gradeID: Int,
-    val grade: Int,
-    val scaleEquation: Int,
-    val weight: Int,
+    @PrimaryKey(autoGenerate = true) val gradeID: Int=0,
+    val grade: Float,
+    val scaleEquation: Float,
+    val weight: Float,
     val subjectName: String,
     val studentIndex: Int
 )

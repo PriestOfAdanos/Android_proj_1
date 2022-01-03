@@ -62,15 +62,10 @@ class SubjectListFragment: Fragment() {
         }
         view.findViewById<Button>(R.id.button_back_to_form).apply {
             setOnClickListener {
-
                 it.findNavController().navigate(R.id.action_subjectListFragment_to_subjectFragment)
-                selfDestruct()
             }
         }
     }
-    fun selfDestruct(){
-        getActivity()?.getSupportFragmentManager()?.beginTransaction()?.remove(this)?.commit()
 
-    }
 
 }

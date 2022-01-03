@@ -43,5 +43,39 @@
         <argument
             android:name="subjectName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_studentListFragment_to_gradeListFragment"
+            app:destination="@id/gradeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gradeListFragment"
+        android:name="com.plcoding.multipleroomtables.Grade.GradeListFragment"
+        android:label="GradeListFragment" >
+        <action
+            android:id="@+id/action_gradeListFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+        <argument
+            android:name="studentIndex"
+            app:argType="integer" />
+        <argument
+            android:name="subjectName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_gradeListFragment_to_gradeFragment"
+            app:destination="@id/gradeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gradeFragment"
+        android:name="com.plcoding.multipleroomtables.Grade.GradeFragment"
+        android:label="GradeFragment" >
+        <action
+            android:id="@+id/action_gradeFragment_to_gradeListFragment"
+            app:destination="@id/gradeListFragment" />
+        <argument
+            android:name="studentIndex"
+            app:argType="integer" />
+        <argument
+            android:name="subjectName"
+            app:argType="string" />
     </fragment>
 </navigation>

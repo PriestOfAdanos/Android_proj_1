@@ -27,8 +27,11 @@ class StudentListFragment: Fragment() {
         var viewModel=ViewModelProvider(requireActivity(),factory).
         get(StudentListViewModel::class.java)
         viewModel.getStundents(subjectName)
-        studentListAdapter= StudentListAdapter(viewModel.students,viewModel,subjectName)
+        studentListAdapter= StudentListAdapter(viewModel.allStudents,viewModel.students,viewModel,subjectName)
 
+        viewModel.allStudents.observe(viewLifecycleOwner,
+            Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
+        )
         viewModel.students.observe(viewLifecycleOwner,
             Observer<List<Student>> { studentListAdapter.notifyDataSetChanged() }
         )
@@ -37,12 +40,9 @@ class StudentListFragment: Fragment() {
             it?.adapter=studentListAdapter
             it?.layoutManager=layoutManager
         }
-        view?.findViewById<Button>(R.id.button_back_to_form)?.apply {
-            setOnClickListener {
-                it.findNavController().navigate(R.id.action_studentListFragment_to_subjectListFragment)
-            }
-        }
+
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,4 +51,14 @@ class StudentListFragment: Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_student_list,container,false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.button_back_to_form)?.apply {
+            setOnClickListener {
+                it.findNavController().navigate(R.id.action_studentListFragment_to_subjectListFragment)
+            }
+        }
+    }
+
 }
