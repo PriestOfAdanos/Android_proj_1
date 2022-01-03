@@ -14,11 +14,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class StudentListViewModel(
-    application: Application,subjectName: String):
+    application: Application):
           AndroidViewModel(application) {
     private val schoolDAO: SchoolDao = SchoolDatabase.getInstance(application).schoolDao
-    var students = schoolDAO.getStudentNamesBySubjectName(subjectName)
+    var students = schoolDAO.getAllStudents()
 
+    fun getStundents(subjectName: String){
+        students = schoolDAO.getStudentNamesBySubjectName(subjectName)
+    }
 //    fun updateStudents(subjectName: String){
 //        students = schoolDAO.getStudentNamesBySubjectName(subjectName)
 //    }

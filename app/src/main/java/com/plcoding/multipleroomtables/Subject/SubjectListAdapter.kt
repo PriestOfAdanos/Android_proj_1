@@ -12,6 +12,8 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.plcoding.multipleroomtables.R
+import com.plcoding.multipleroomtables.Student.StudentListFragment
+import com.plcoding.multipleroomtables.Student.StudentListFragmentDirections
 import com.plcoding.multipleroomtables.entities.Subject
 
 class SubjectListAdapter(private val subjects: LiveData<List<Subject>>, private val viewModel: SubjectListViewModel)
@@ -44,8 +46,10 @@ class SubjectListAdapter(private val subjects: LiveData<List<Subject>>, private 
         }
         holder.buttonDetails.setOnClickListener {
             subjects.value?.let{ existingSubject->
-                val bundle = bundleOf("subjectName" to existingSubject.get(position).subjectName)
-                it.findNavController().navigate(R.id.action_subjectListFragment_to_studentListFragment,bundle)
+                val subjectName = existingSubject.get(position).subjectName
+                val action = SubjectListFragmentDirections.actionSubjectListFragmentToStudentListFragment(subjectName)
+
+                it.findNavController().navigate(action)
             }
         }
     }

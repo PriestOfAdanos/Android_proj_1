@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.plcoding.multipleroomtables.entities.Subject
 
 class StudentListViewModelFactory(
-    private val application: Application, private val subjectName: String
+    private val application: Application
 ) :ViewModelProvider.Factory {
 
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(StudentListViewModel::class.java)) {
-            return StudentListViewModel(application, subjectName) as T
+            return StudentListViewModel(application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
