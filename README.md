@@ -7,4 +7,4 @@ Baza danych zawiera 3 encje:
  - student
  - subject
  
- 
+![plot](./diag.png)
