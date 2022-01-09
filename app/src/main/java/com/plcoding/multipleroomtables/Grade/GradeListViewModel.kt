@@ -21,6 +21,8 @@ class GradeListViewModel(
     private val schoolDAO: SchoolDao = SchoolDatabase.getInstance(application).schoolDao
 
     var grades= schoolDAO.getGradesByStudentIndexAndSubjectName(studentIndex,subjectName)
+    var average= schoolDAO.getGradesAverageOfStudent(studentIndex,subjectName)
+
 
     fun updateGradeList(studentIndex:Int,subjectName:String){
         grades= schoolDAO.getGradesByStudentIndexAndSubjectName(studentIndex,subjectName)
@@ -31,6 +33,10 @@ class GradeListViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             schoolDAO.deleteGrade(grade)
         }
+    }
+
+    fun computeAverage(studentIndex:Int,subjectName:String) {
+            average= schoolDAO.getGradesAverageOfStudent(studentIndex,subjectName)
     }
 
     fun addGradeToStudentAndSubject(grade: Grade)

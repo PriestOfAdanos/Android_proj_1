@@ -61,5 +61,8 @@ interface SchoolDao {
     @Query("SELECT * FROM Grade WHERE (Grade.subjectName=:subjectName AND Grade.studentIndex=:studentIndex)")
     fun getGradesByStudentIndexAndSubjectName(studentIndex: Int,subjectName: String): LiveData<List<Grade>>
 
+    @Query("SELECT SUM(grade*weight/scaleEquation)/SUM(weight) FROM (SELECT * FROM Grade WHERE (Grade.subjectName=:subjectName AND Grade.studentIndex=:studentIndex))")
+    fun getGradesAverageOfStudent(studentIndex: Int,subjectName: String): Float
+
     //thanks: https://stackoverflow.com/questions/67842648/android-room-dao-get-one-field-with-crossref
 }

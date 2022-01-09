@@ -31,10 +31,16 @@ class GradeListAdapter(private val grades: LiveData<List<Grade>>, private val vi
         val view=LayoutInflater.from(parent.context).inflate(R.layout.one_grade_row,parent,false)
         return GradeListHolder(view)
     }
+
+
+
+
     override fun onBindViewHolder(holder: GradeListHolder, position: Int) {
         holder.textViewGradeValue.text = grades.value?.get(position)?.grade.toString()
         holder.textViewGradeEquation.text = grades.value?.get(position)?.scaleEquation.toString()
-        holder.textViewGradeWeight.text = grades.value?.get(position)?.scaleEquation.toString()
+        holder.textViewGradeWeight.text = grades.value?.get(position)?.weight.toString()
+
+
 
         holder.buttonDelete.setOnClickListener {
             grades.value?.let{ grade->

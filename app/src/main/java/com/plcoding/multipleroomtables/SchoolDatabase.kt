@@ -32,7 +32,7 @@ abstract class SchoolDatabase : RoomDatabase() {
                     context.applicationContext,
                     SchoolDatabase::class.java,
                     "school_db"
-                ).build().also {
+                ).allowMainThreadQueries().build().also {
                     INSTANCE = it
                 }
             }

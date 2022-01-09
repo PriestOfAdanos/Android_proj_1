@@ -11,13 +11,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.plcoding.multipleroomtables.R
+import com.plcoding.multipleroomtables.SchoolDatabase
+import com.plcoding.multipleroomtables.SchoolDatabase_Impl
 import com.plcoding.multipleroomtables.entities.Subject
-
-
+import kotlinx.coroutines.launch
 
 
 class SubjectListFragment: Fragment() {
@@ -63,6 +65,13 @@ class SubjectListFragment: Fragment() {
         view.findViewById<Button>(R.id.button_back_to_form).apply {
             setOnClickListener {
                 it.findNavController().navigate(R.id.action_subjectListFragment_to_subjectFragment)
+            }
+        }
+        view.findViewById<Button>(R.id.button_clear_databse).apply {
+            setOnClickListener {
+                    viewModel.deleteAll()
+
+
             }
         }
     }

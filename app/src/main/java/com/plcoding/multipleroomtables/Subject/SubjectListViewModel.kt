@@ -14,7 +14,8 @@ class SubjectListViewModel(
     application: Application):
           AndroidViewModel(application) {
 
-    private val schoolDAO : SchoolDao = SchoolDatabase.getInstance(application).schoolDao
+    private val sclDB : SchoolDatabase = SchoolDatabase.getInstance(application)
+    private val schoolDAO: SchoolDao = sclDB.schoolDao
     val subjects:LiveData<List<Subject>> = schoolDAO.getAllSubjects()
 
     fun deleteSubject(subject: Subject)
@@ -22,5 +23,9 @@ class SubjectListViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             schoolDAO.deleteSubject(subject)
         }
+    }
+
+    fun deleteAll(){
+        sclDB.clearAllTables()
     }
 }
